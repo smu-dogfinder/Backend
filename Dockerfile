@@ -7,7 +7,7 @@ ENV PATH $PATH:$JAVA_HOME/bin
 WORKDIR /app
 COPY . .
  
-RUN mvn clean package -DskipTests
+RUN bash -c "mvn clean package -DskipTests"
  
 # Run stage
 FROM eclipse-temurin:17-jdk
