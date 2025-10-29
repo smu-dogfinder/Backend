@@ -1,6 +1,0 @@
-cookie:
-    name: refresh_token         # 쿠키 이름
-    secure: false               # 로컬 http 이므로 false
-    same-site: Lax              # localhost:5173 ↔ 8080은 same-site
-    path: /                     # 전 경로에서 전송
-    max-age-seconds: 1209600    # 14일 (60*60*24*14)
