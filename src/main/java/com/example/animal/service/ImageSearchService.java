@@ -14,6 +14,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.InputStream;
 import java.io.IOException;
@@ -23,6 +24,9 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class ImageSearchService {
+
+    @Value("${ai.base-url}")
+    private String aiBaseUrl;
 
     private final DogDetailsRepository dogDetailsRepository;
 
@@ -79,8 +83,8 @@ public class ImageSearchService {
 
     // AI 요청: 기능별로 엔드포인트 선택
     private Map<String, Object> requestToAiServer(MultipartFile imageFile, String mode) {
-        String aiBaseUrl = "https://02c36cf11729.ngrok-free.app/search/";
-        String aiUrl = aiBaseUrl + mode;
+        
+        String aiUrl = aiBaseUrl + "/search/" + mode;
 
         MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
         try {
