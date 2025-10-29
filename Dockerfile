@@ -1,13 +1,11 @@
 # Build stage
 FROM maven:3.9.5-eclipse-temurin-17 AS builder
  
-ENV JAVA_HOME /usr/local/openjdk-17
-ENV PATH $PATH:$JAVA_HOME/bin
- 
 WORKDIR /app
 COPY . .
  
-RUN bash -c "mvn clean package -DskipTests"
+ENTRYPOINT ["mvn"]
+CMD ["clean", "package", "-DskipTests"]
  
 # Run stage
 FROM eclipse-temurin:17-jdk
