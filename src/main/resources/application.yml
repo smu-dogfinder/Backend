@@ -42,6 +42,9 @@ openapi:
     url: "https://apis.data.go.kr/1543061/animalShelterSrvc_v2/shelterInfo_v2"
     service-key: ${SHELTER_API_KEY:your-api-key-here}
 
+ai:
+  base-url: ${AI_BASE_URL:http://localhost:8000}  # 로컬 기본값
+
 app:
   upload-root: ${UPLOAD_PATH:./uploads}
   
