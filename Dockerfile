@@ -4,8 +4,7 @@ FROM eclipse-temurin:17-jdk AS builder
 WORKDIR /app
 COPY . .
 
-# Gradle 프로젝트일 경우
-RUN chmod +x ./gradlew && ./gradlew clean build -x test
+RUN mvn clean package -DskipTests
 
 # Run stage
 FROM eclipse-temurin:17-jdk
